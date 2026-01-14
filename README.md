@@ -1,21 +1,21 @@
 # Switch 版 Chiaki 增强分支  
-**在 [kkwong/chiaki](https://git.sr.ht/~kkwong/chiaki) 基础上二次开发，感谢原作者与社区贡献！**
+**在 [hikigayairoha/chiaki-switch](https://github.com/hikigayairoha/chiaki-switch) 基础上二次开发，感谢原作者与社区贡献！**
 
 ---
-一键下载：[chiaki.nro](https://github.com/hikigayairoha/chiaki-switch/releases/download/v2.2.0-chiaki-switch/chiaki.nro)
+一键下载：[chiaki.nro](https://github.com/hymoe/chiaki-switch/releases/download/v2.2.0/chiaki.nro)
 
 源码下载：
 ```bash
-git clone -b feature_haptic_rumble https://github.com/hikigayairoha/chiaki-switch.git
+git clone -b feature_bitrate_amplification https://github.com/hymoe/chiaki-switch.git
 ```
 ---
 ## 🚀 功能亮点
+- **码率档位增加**
+  720P支持13-30Mbps档位，1080P支持15-50Mbps档位。
 - **减号键 → 触控板按下**  
   一键搞定 PS5 触控板功能，告别繁琐组合键。  
 - **「＋」＋「－」同时按住 → PS 键**  
-  快速呼出系统菜单，操作更顺手。  
-- **720P 码率微调**  
-  默认 13 Mbps（原 15 Mbps），网络不稳时更流畅；需要可自行调回。  
+  快速呼出系统菜单，操作更顺手。   
 - **第三方手柄震动 & 陀螺仪**  
   已验证「魔派双子星二代」完美支持；陀螺仪在 **GT7** 等原生支持场景生效。  
 
@@ -24,7 +24,7 @@ git clone -b feature_haptic_rumble https://github.com/hikigayairoha/chiaki-switc
 ## 📦 系统需求
 | 项目 | 版本 |
 |------|------|
-| 固件 | **20.1.1**（实测） |
+| 固件 | **20.5.0**（实测） |
 
 ---
 
@@ -53,9 +53,6 @@ git clone -b feature_haptic_rumble https://github.com/hikigayairoha/chiaki-switc
 ---
 
 ## ❤️ 致谢
+- **hikigayairoha** 提供触控板和PS键映射
 - **kkwong** 提供震动与陀螺仪基础实现  
-- **B 站 UP 主：阿西西的日常** 分享详细编译流程  
-
----
-
-> 本代码纯由claude code+kimi k2 模型开发完成，本人仅为 ai 打工提供了办公场所.jpg，所以遇到问题积极联系 ai 而不是我.jpg
+- **B 站 UP 主：阿西西的日常** 分享详细编译流程
