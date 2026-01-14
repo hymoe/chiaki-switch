@@ -63,7 +63,7 @@ class Settings
 			{RP_KEY, std::regex("^\\s*rp_key\\s*=\\s*\"?([\\w/=+]+)\"?")},
 			{RP_KEY_TYPE, std::regex("^\\s*rp_key_type\\s*=\\s*\"?(\\d)\"?")},
 			{RP_REGIST_KEY, std::regex("^\\s*rp_regist_key\\s*=\\s*\"?([\\w/=+]+)\"?")},
-			{VIDEO_RESOLUTION, std::regex("^\\s*video_resolution\\s*=\\s*\"?(1080p|720p|540p|360p)\"?")},
+			{VIDEO_RESOLUTION, std::regex("^\\s*video_resolution\\s*=\\s*\"?(1080p(?:20M|30M|40M|50M)?|720p(?:20M|25M|30M)?|540p|360p)\"?")},
 			{VIDEO_FPS, std::regex("^\\s*video_fps\\s*=\\s*\"?(60|30)\"?")},
 			{TARGET, std::regex("^\\s*target\\s*=\\s*\"?(\\d+)\"?")},
 			{HAPTIC, std::regex("^\\s*haptic\\s*=\\s*\"?(\\d+)\"?")},

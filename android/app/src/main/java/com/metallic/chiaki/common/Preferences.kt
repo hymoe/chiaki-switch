@@ -23,7 +23,14 @@ class Preferences(context: Context)
 		RES_360P("360p", R.string.preferences_resolution_title_360p, VideoResolutionPreset.RES_360P),
 		RES_540P("540p", R.string.preferences_resolution_title_540p, VideoResolutionPreset.RES_540P),
 		RES_720P("720p", R.string.preferences_resolution_title_720p, VideoResolutionPreset.RES_720P),
+		RES_720P_20M("720p20M", R.string.preferences_resolution_title_720p_20m, VideoResolutionPreset.RES_720P_20M),
+		RES_720P_25M("720p25M", R.string.preferences_resolution_title_720p_25m, VideoResolutionPreset.RES_720P_25M),
+		RES_720P_30M("720p30M", R.string.preferences_resolution_title_720p_30m, VideoResolutionPreset.RES_720P_30M),
 		RES_1080P("1080p", R.string.preferences_resolution_title_1080p, VideoResolutionPreset.RES_1080P),
+		RES_1080P_20M("1080p20M", R.string.preferences_resolution_title_1080p_20m, VideoResolutionPreset.RES_1080P_20M),
+		RES_1080P_30M("1080p30M", R.string.preferences_resolution_title_1080p_30m, VideoResolutionPreset.RES_1080P_30M),
+		RES_1080P_40M("1080p40M", R.string.preferences_resolution_title_1080p_40m, VideoResolutionPreset.RES_1080P_40M),
+		RES_1080P_50M("1080p50M", R.string.preferences_resolution_title_1080p_50m, VideoResolutionPreset.RES_1080P_50M),
 	}
 
 	enum class FPS(val value: String, @StringRes val title: Int, val preset: VideoFPSPreset)
