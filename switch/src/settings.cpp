@@ -266,8 +266,22 @@ std::string Settings::ResolutionPresetToString(ChiakiVideoResolutionPreset resol
 			return "540p";
 		case CHIAKI_VIDEO_RESOLUTION_PRESET_720p:
 			return "720p";
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_720p_20M:
+			return "720p20M";
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_720p_25M:
+			return "720p25M";
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_720p_30M:
+			return "720p30M";
 		case CHIAKI_VIDEO_RESOLUTION_PRESET_1080p:
 			return "1080p";
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_20M:
+			return "1080p20M";
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_30M:
+			return "1080p30M";
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_40M:
+			return "1080p40M";
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_50M:
+			return "1080p50M";
 	}
 	return "UNKNOWN";
 }
@@ -281,8 +295,15 @@ int Settings::ResolutionPresetToInt(ChiakiVideoResolutionPreset resolution)
 		case CHIAKI_VIDEO_RESOLUTION_PRESET_540p:
 			return 540;
 		case CHIAKI_VIDEO_RESOLUTION_PRESET_720p:
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_720p_20M:
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_720p_25M:
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_720p_30M:
 			return 720;
 		case CHIAKI_VIDEO_RESOLUTION_PRESET_1080p:
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_20M:
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_30M:
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_40M:
+		case CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_50M:
 			return 1080;
 	}
 	return 0;
@@ -290,8 +311,22 @@ int Settings::ResolutionPresetToInt(ChiakiVideoResolutionPreset resolution)
 
 ChiakiVideoResolutionPreset Settings::StringToResolutionPreset(std::string value)
 {
-	if(value.compare("1080p") == 0)
+	if(value.compare("1080p50M") == 0)
+		return CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_50M;
+	else if(value.compare("1080p40M") == 0)
+		return CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_40M;
+	else if(value.compare("1080p30M") == 0)
+		return CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_30M;
+	else if(value.compare("1080p20M") == 0)
+		return CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_20M;
+	else if(value.compare("1080p") == 0)
 		return CHIAKI_VIDEO_RESOLUTION_PRESET_1080p;
+	else if(value.compare("720p30M") == 0)
+		return CHIAKI_VIDEO_RESOLUTION_PRESET_720p_30M;
+	else if(value.compare("720p25M") == 0)
+		return CHIAKI_VIDEO_RESOLUTION_PRESET_720p_25M;
+	else if(value.compare("720p20M") == 0)
+		return CHIAKI_VIDEO_RESOLUTION_PRESET_720p_20M;
 	else if(value.compare("720p") == 0)
 		return CHIAKI_VIDEO_RESOLUTION_PRESET_720p;
 	else if(value.compare("540p") == 0)

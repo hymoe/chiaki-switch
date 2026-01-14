@@ -2,6 +2,8 @@
 
 #include "gui.h"
 #include <chiaki/log.h>
+#include <utility>
+#include <vector>
 
 #define SCREEN_W 1280
 #define SCREEN_H 720
@@ -352,45 +354,37 @@ bool MainApplication::BuildConfigurationMenu(brls::List *ls, Host *host)
 	psn_online_id->getClickEvent()->subscribe(psn_online_id_cb);
 	ls->addView(psn_online_id);
 
-	int value;
+	int value = 0;
 	ChiakiVideoResolutionPreset resolution_preset = this->settings->GetVideoResolution(host);
-	switch(resolution_preset)
+	const std::vector<std::pair<ChiakiVideoResolutionPreset, std::string>> resolution_options = {
+		{ CHIAKI_VIDEO_RESOLUTION_PRESET_1080p, "1080p (PS5 and PS4 Pro only)" },
+		{ CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_20M, "1080p 20M (PS5 and PS4 Pro only)" },
+		{ CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_30M, "1080p 30M (PS5 and PS4 Pro only)" },
+		{ CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_40M, "1080p 40M (PS5 and PS4 Pro only)" },
+		{ CHIAKI_VIDEO_RESOLUTION_PRESET_1080p_50M, "1080p 50M (PS5 and PS4 Pro only)" },
+		{ CHIAKI_VIDEO_RESOLUTION_PRESET_720p, "720p" },
+		{ CHIAKI_VIDEO_RESOLUTION_PRESET_720p_20M, "720p 20M" },
+		{ CHIAKI_VIDEO_RESOLUTION_PRESET_720p_25M, "720p 25M" },
+		{ CHIAKI_VIDEO_RESOLUTION_PRESET_720p_30M, "720p 30M" },
+		{ CHIAKI_VIDEO_RESOLUTION_PRESET_540p, "540p" },
+		{ CHIAKI_VIDEO_RESOLUTION_PRESET_360p, "360p" }
+	};
+	std::vector<std::string> resolution_labels;
+	resolution_labels.reserve(resolution_options.size());
+	for(size_t i = 0; i < resolution_options.size(); ++i)
 	{
-		case CHIAKI_VIDEO_RESOLUTION_PRESET_1080p:
-			value = 0;
-			break;
-		case CHIAKI_VIDEO_RESOLUTION_PRESET_720p:
-			value = 1;
-			break;
-		case CHIAKI_VIDEO_RESOLUTION_PRESET_540p:
-			value = 2;
-			break;
-		case CHIAKI_VIDEO_RESOLUTION_PRESET_360p:
-			value = 3;
-			break;
+		resolution_labels.push_back(resolution_options[i].second);
+		if(resolution_preset == resolution_options[i].first)
+			value = static_cast<int>(i);
 	}
 
 	brls::SelectListItem *resolution = new brls::SelectListItem(
-		"Resolution", { "1080p (PS5 and PS4 Pro only)", "720p", "540p", "360p" }, value);
+		"Resolution", resolution_labels, value);
 
-	auto resolution_cb = [this, host](int result) {
-		ChiakiVideoResolutionPreset value = CHIAKI_VIDEO_RESOLUTION_PRESET_720p;
-		switch(result)
-		{
-			case 0:
-				value = CHIAKI_VIDEO_RESOLUTION_PRESET_1080p;
-				break;
-			case 1:
-				value = CHIAKI_VIDEO_RESOLUTION_PRESET_720p;
-				break;
-			case 2:
-				value = CHIAKI_VIDEO_RESOLUTION_PRESET_540p;
-				break;
-			case 3:
-				value = CHIAKI_VIDEO_RESOLUTION_PRESET_360p;
-				break;
-		}
-		this->settings->SetVideoResolution(host, value);
+	auto resolution_cb = [this, host, resolution_options](int result) {
+		if(result < 0 || static_cast<size_t>(result) >= resolution_options.size())
+			return;
+		this->settings->SetVideoResolution(host, resolution_options[result].first);
 		this->settings->WriteFile();
 	};
 	resolution->getValueSelectedEvent()->subscribe(resolution_cb);

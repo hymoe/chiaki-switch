@@ -80,7 +80,14 @@
     <string name="preferences_resolution_title_360p">360p</string>
     <string name="preferences_resolution_title_540p">540p</string>
     <string name="preferences_resolution_title_720p">720p</string>
+    <string name="preferences_resolution_title_720p_20m">720p 20M</string>
+    <string name="preferences_resolution_title_720p_25m">720p 25M</string>
+    <string name="preferences_resolution_title_720p_30m">720p 30M</string>
     <string name="preferences_resolution_title_1080p">1080p</string>
+    <string name="preferences_resolution_title_1080p_20m">1080p 20M</string>
+    <string name="preferences_resolution_title_1080p_30m">1080p 30M</string>
+    <string name="preferences_resolution_title_1080p_40m">1080p 40M</string>
+    <string name="preferences_resolution_title_1080p_50m">1080p 50M</string>
     <string name="preferences_fps_title_30">30</string>
     <string name="preferences_fps_title_60">60</string>
     <string name="preferences_bitrate_auto">Auto (%d)</string>
